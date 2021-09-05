@@ -1,0 +1,21 @@
+{
+  "name": "autopost-lolz",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.ts",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Keller",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/node": "^16.7.10",
+    "@types/request": "^2.48.7"
+  },
+  "dependencies": {
+    "lit-html": "^1.4.1",
+    "node-html-parser": "^4.1.4",
+    "request": "^2.88.2"
+  }
+}
