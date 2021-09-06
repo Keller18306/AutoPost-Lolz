@@ -80,5 +80,8 @@ export default async function buildPost(): Promise<string> {
         <p style="text-align: center"><img src="https://i.imgur.com/wx2vdeG.png" class="bbCodeImage wysiwygImage" alt=""
                         unselectable="on"></p>
         <p style="text-align: right">Актуально на: ${time()}</p>
+        <p style="text-align: center"><br></p>
+        <p style="text-align: left">Разработчик: <a href="https://lolz.guru/keller" class="internalLink ProxyLink" data-proxy-href="https://lolz.guru/keller">https://lolz.guru/keller</a></p>
+        <p style="text-align: left">Исходный код: <a href="https://github.com/Keller18306/AutoPost-Lolz" target="_blank" class="externalLink ProxyLink" data-proxy-href="https://github.com/Keller18306/AutoPost-Lolz" rel="nofollow noopener">https://github.com/Keller18306/AutoPost-Lolz</a></p>
     `
 }
