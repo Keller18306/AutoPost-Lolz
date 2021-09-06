@@ -2,17 +2,17 @@ import { lolzRequest } from './request'
 import buildPost from './post'
 import { config } from './config'
 import parseHtml from 'node-html-parser';
-import { time } from './utils';
+import { time } from './utils/';
 
 export default async function start() {
     while (true) {
         const startTime = new Date().getTime()
 
-        handleAction().catch(console.error)
+        await handleAction().catch(console.error)
 
         console.log(`[${time(true)}]: Updated`)
 
-        await new Promise(res => setTimeout(res, 30 * 1e3 - (new Date().getTime() - startTime)))
+        await new Promise(res => setTimeout(res, config.update * 1e3 - (new Date().getTime() - startTime)))
     }
 }
 

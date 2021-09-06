@@ -7,6 +7,7 @@ import { config } from './config';
 export function lolzRequest(
     url: string,
     options: {
+        asJson?: boolean,
         emitAjax?: boolean,
         ajaxType?: 'thread' | 'page',
         referer?: string,
@@ -15,6 +16,7 @@ export function lolzRequest(
         xftoken?: string,
         ignoreJScheck?: boolean
     } = {
+            asJson: false,
             emitAjax: false,
             headers: {},
             formData: {},
@@ -90,7 +92,7 @@ export function lolzRequest(
                     }
                 }
             }
-            if (res.statusCode === 200) resolve(options.emitAjax ? JSON.parse(body) : body);
+            if (res.statusCode === 200) resolve(options.emitAjax || options.asJson ? JSON.parse(body) : body);
             else resolve({
                 code: res.statusCode,
                 redirect: res.headers.location
