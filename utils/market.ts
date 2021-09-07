@@ -307,19 +307,23 @@ export function calcTopUsers(trs: {
         users.set(tr.userId, users.get(tr.userId)! + tr.amount)
     }
 
-    const summs: number[] = []
+    let summs: number[] = []
     for (const sum of users.values()) summs.push(sum)
 
     summs.sort(function (a, b) {
         return b - a;
     });
 
-    const maxSumms = summs.splice(0, limit)
+    summs = summs.splice(0, limit)
+
+    summs = summs.filter((value, index, self) => { return self.indexOf(value) === index })
 
     const topUsers: { userId: number | string, userNick: string | null, total: number }[] = []
 
-    for (const need of maxSumms) {
+    for (const need of summs) {
+        if (topUsers.length >= limit) break;
         for (const [id, sum] of users) {
+            if (topUsers.length >= limit) break;
             if (sum != need) continue;
 
             topUsers.push({ userId: isNaN(+id) ? id : +id, userNick: uName.get(id)!, total: sum })
