@@ -380,7 +380,7 @@ export function selectTop(trs: {
 
     for (const need of maxSumms) {
         for (const tr of trs) {
-            if (donats.length > limit) break;
+            if (donats.length >= limit) break;
             if (tr.amount != need) continue;
 
             donats.push(tr)
