@@ -43,42 +43,37 @@ export default async function buildPost(): Promise<string> {
         <p style="text-align: center">Привет. Спасибо, что зашёл на мою страницу.</p>
         <p style="text-align: center">Я тот человек, кто убил целую расу ботов с автоучастием, сделав новую капчу. Мне очень
                 жаль (нет)</p>
-        <p style="text-align: center">Можешь высказаться мне в лс. Люблю всех, удачки! <img
-                        src="https://i.imgur.com/59gYEWE.png" class="mceSmilie" alt=":animelove:" unselectable="on"></p>
-        <p style="text-align: center"><img src="https://i.imgur.com/wx2vdeG.png" class="bbCodeImage wysiwygImage" alt=""
-                        unselectable="on"></p>
-        <p style="text-align: center">Это техас, она же у меня на аве <img src="https://i.imgur.com/DQLW02K.png"
-                        class="mceSmilie" alt=":animecute:" unselectable="on">:</p>
-        <p style="text-align: center"><img src="https://i.imgur.com/lq4iFfi.gif" class="bbCodeImage wysiwygImage" alt=""
-                        unselectable="on"></p>
-        <p style="text-align: center"><img src="https://i.imgur.com/wx2vdeG.png" class="bbCodeImage wysiwygImage" alt=""
-                        unselectable="on"></p>
+        <p style="text-align: center">Можешь высказаться мне в лс. Люблю всех, удачки! <img src="https://i.imgur.com/59gYEWE.png" class="mceSmilie" alt=":animelove:" unselectable="on"></p>
+        <p style="text-align: center"><img src="https://i.imgur.com/wx2vdeG.png" class="bbCodeImage wysiwygImage" alt="" unselectable="on"></p>
+        <p style="text-align: center"><img src="https://i.imgur.com/IgUqRlw.png" title="Tg" alt=":tg:" data-smilie="yes">&nbsp;</p>
+        <p style="text-align: center">Мой телеграм канал: <a href="https://t.me/kellorium" target="_blank" class="externalLink ProxyLink" data-proxy-href="https://t.me/kellorium" rel="nofollow noopener">https://t.me/kellorium</a></p>
+        <p style="text-align: center">(заходи, там очень много интересной инфы)</p>
+        <p style="text-align: center"><br></p>
+        <p style="text-align: center"><img src="https://i.imgur.com/wx2vdeG.png" class="bbCodeImage wysiwygImage" alt="" unselectable="on"></p>
+        <p style="text-align: center">Это техас, она же у меня на аве <img src="https://i.imgur.com/DQLW02K.png" class="mceSmilie" alt=":animecute:" unselectable="on">:</p>
+        <p style="text-align: center"><img src="https://i.imgur.com/lq4iFfi.gif" class="bbCodeImage wysiwygImage" alt="" unselectable="on"></p>
+        <p style="text-align: center"><img src="https://i.imgur.com/wx2vdeG.png" class="bbCodeImage wysiwygImage" alt="" unselectable="on"></p>
         <p style="text-align: center">Топ ${config.limits.topDonaters} донатеров:</p>
         <p style="text-align: center"><br></p>
         ${formatUsersTop(topDonators, parsedIds)}
-        <p style="text-align: center"><img src="https://i.imgur.com/wx2vdeG.png" class="bbCodeImage wysiwygImage" alt=""
-                        unselectable="on"></p>
+        <p style="text-align: center"><img src="https://i.imgur.com/wx2vdeG.png" class="bbCodeImage wysiwygImage" alt="" unselectable="on"></p>
         <p style="text-align: center">Топ ${config.limits.topDonats} донатов:</p>
         <p style="text-align: center"><br></p>
         ${formatUsers(topDonats, parsedIds)}
-        <p style="text-align: center"><img src="https://i.imgur.com/wx2vdeG.png" class="bbCodeImage wysiwygImage" alt=""
-                        unselectable="on"></p>
+        <p style="text-align: center"><img src="https://i.imgur.com/wx2vdeG.png" class="bbCodeImage wysiwygImage" alt="" unselectable="on"></p>
         <p style="text-align: center">Последние ${config.limits.lastDonats} донатов:</p>
         <p style="text-align: center"><br></p>
         ${formatUsers(lastDonats, parsedIds)}
-        <p style="text-align: center"><img src="https://i.imgur.com/wx2vdeG.png" class="bbCodeImage wysiwygImage" alt=""
-                        unselectable="on"></p>
+        <p style="text-align: center"><img src="https://i.imgur.com/wx2vdeG.png" class="bbCodeImage wysiwygImage" alt="" unselectable="on"></p>
         <p style="text-align: center">Последние ${config.limits.contexts} побед в розыгрышах:</p>
         <p style="text-align: center"><br></p>
         ${formatContexts(contexts.transfers.splice(0, config.limits.contexts))}
-        <p style="text-align: center"><img src="https://i.imgur.com/wx2vdeG.png" class="bbCodeImage wysiwygImage" alt=""
-                        unselectable="on"></p>
+        <p style="text-align: center"><img src="https://i.imgur.com/wx2vdeG.png" class="bbCodeImage wysiwygImage" alt="" unselectable="on"></p>
         <p style="text-align: center">Всего получено с розыгрышей: ${contexts.total} ₽</p>
         <p style="text-align: center">Всего задонатили: ${donats.total} ₽</p>
         <p style="text-align: center">Текущий баланс: ${market.balance} ₽</p>
         <p style="text-align: center">В холде: ${market.hold} ₽</p>
-        <p style="text-align: center"><img src="https://i.imgur.com/wx2vdeG.png" class="bbCodeImage wysiwygImage" alt=""
-                        unselectable="on"></p>
+        <p style="text-align: center"><img src="https://i.imgur.com/wx2vdeG.png" class="bbCodeImage wysiwygImage" alt="" unselectable="on"></p>
         <p style="text-align: right">Актуально на: ${time()}</p>
         <p style="text-align: center"><br></p>
         <p style="text-align: left">Разработчик: <a href="https://lolz.guru/keller" class="internalLink ProxyLink" data-proxy-href="https://lolz.guru/keller">https://lolz.guru/keller</a></p>
