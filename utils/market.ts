@@ -29,7 +29,7 @@ export class Market {
                 if (!block.classList.contains('section')) continue;
 
                 section++
-                if (section != 4) continue;
+                if (section != 3) continue;
 
                 for (const a of block.querySelectorAll('a')) {
                     const text = a.innerText.split('\n').join('').split('\t').join('')
@@ -225,7 +225,11 @@ export class Market {
                 for (const div of tr.querySelectorAll('div')) {
                     if (div.classNames != 'muted comment') continue;
 
-                    comment = div.innerText?.split('\n').join('').split('\t').join('').replace(/\s+/g, ' ').trim()
+                    comment = div.innerText?.split('\n').join('')
+                        .split('\t').join('')
+                        .replace(/\s+/g, ' ').trim()
+                        .replaceAll(/\[[^\]]+\]/g, ' ').trim()
+                        .replaceAll(/\<[^\>]+\>/g, ' ').trim()
 
                     break;
                 }
