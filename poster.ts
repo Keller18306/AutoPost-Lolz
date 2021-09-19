@@ -8,10 +8,13 @@ export default async function start() {
     while (true) {
         const startTime = new Date().getTime()
 
-        await handleAction().catch(console.error)
-
-        console.log(`[${time(true)}]: Updated`)
-
+		try {
+			await handleAction()
+			console.log(`[${time(true)}]: Updated`)
+		} catch(e: any) {
+			console.error(e)
+		}
+        
         await new Promise(res => setTimeout(res, config.update * 1e3 - (new Date().getTime() - startTime)))
     }
 }
