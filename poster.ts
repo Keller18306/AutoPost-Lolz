@@ -14,7 +14,7 @@ export default async function start() {
                     rej(new Error('timed out'))
                 }, 5 * 60 * 1e3)
 
-                await handleAction()
+                await handleAction().catch(rej)
 
                 clearTimeout(timeout)
                 res()
