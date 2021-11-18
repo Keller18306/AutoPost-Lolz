@@ -40,10 +40,7 @@ export default async function buildPost(): Promise<string> {
         }
 
         return /*html*/`
-        <p style="text-align: center">Привет. Спасибо, что зашёл на мою страницу.</p>
-        <p style="text-align: center">Я тот человек, кто убил целую расу ботов с автоучастием, сделав новую капчу. Мне очень
-                жаль (нет)</p>
-        <p style="text-align: center">Можешь высказаться мне в лс. Люблю всех, удачки! <img src="https://i.imgur.com/59gYEWE.png" class="mceSmilie" alt=":animelove:" unselectable="on"></p>
+        <p style="text-align: center">Привет. Спасибо, что зашёл на мою страницу. <img src="https://i.imgur.com/59gYEWE.png" class="mceSmilie" alt=":animelove:" unselectable="on"></p>
         <p style="text-align: center"><img src="https://i.imgur.com/wx2vdeG.png" class="bbCodeImage wysiwygImage" alt="" unselectable="on"></p>
         <p style="text-align: center"><img src="https://i.imgur.com/IgUqRlw.png" title="Tg" alt=":tg:" data-smilie="yes">&nbsp;</p>
         <p style="text-align: center">Мой телеграм канал: <a href="https://t.me/kellorium" target="_blank" class="externalLink ProxyLink" data-proxy-href="https://t.me/kellorium" rel="nofollow noopener">https://t.me/kellorium</a></p>
