@@ -208,7 +208,7 @@ export class Market {
 
                     for (const span of div.querySelectorAll('span')) {
                         if (span.classNames != 'in') continue;
-                        amount = +span.innerText.split(' ')[1].split('\n').join('').split('\t').join('')
+                        amount = +span.innerText.split(' ').slice(1).join('').split('\n').join('').split('\t').join('')
                         break;
                     }
 
