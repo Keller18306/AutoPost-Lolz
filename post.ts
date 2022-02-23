@@ -1,14 +1,16 @@
 import { config } from "./config";
 import { time } from "./utils/";
-import { calcTopUsers, formatContexts, formatUsers, formatUsersTop, getUserId, Market, selectTop } from "./utils/market";
+import { calcTopUsers, formatContexts, formatUsers, formatUsersTop, getUserId, Market, selectTop, sortRoot } from "./utils/market";
 
 export default async function buildPost(): Promise<string> {
         const market = new Market()
 
         const [contexts, donats] = await Promise.all([
-                market.getTransfers('root'),
-                market.getTransfers(undefined, 3)
+                market.getTransfers('root', undefined, undefined, true),
+                market.getTransfers(undefined)
         ])
+
+        sortRoot(contexts)
 
         const toParseIds: string[] = []
 

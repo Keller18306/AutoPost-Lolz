@@ -120,7 +120,7 @@ export class Market {
         return res
     }
 
-    async getTransfers(sender?: string, ignore?: string | number, noSent: boolean = true) {
+    async getTransfers(sender?: string, ignore?: string | number, noSent: boolean = true, rootMustHasComment: boolean = false) {
         let total: number = 0;
         const transfers: {
             id: number,
@@ -191,7 +191,7 @@ export class Market {
                     const span = div.querySelector('span')
                     if (span == undefined) {
                         const text = div.innerText.split('\n').join('').split('\t').join('').replace(/\s+/g, ' ').trim()
-                        const match = text.match(/перевод\ денег\ от\ ([\s\S]*)/i)?.[1]
+                        const match = text.match(/перевод\ денег(\ от)?\ ([\s\S]*)/i)?.[2]
                         if (match == null) break;
                         userNick = match
                         break;
@@ -259,6 +259,12 @@ export class Market {
                 if (userId == ignore) continue;
                 if (noSent && amount < 0) continue;
 
+                if (userNick === 'root') {
+                    if (rootMustHasComment && comment == undefined) continue;
+                    if (!rootMustHasComment && comment != undefined) continue;
+                }
+                if (rootMustHasComment && userNick === 'root' && comment == undefined) continue;
+
                 total += amount
 
                 const transaction: {
@@ -276,8 +282,6 @@ export class Market {
                     comment: comment,
                     time: time
                 }
-
-
 
                 transfers.push(transaction)
             }
@@ -382,12 +386,16 @@ export function selectTop(trs: {
         time: number | string
     }[] = []
 
+
+    const alreadyBeen: string[] = [];
     for (const need of maxSumms) {
         for (const tr of trs) {
             if (donats.length >= limit) break;
             if (tr.amount != need) continue;
+            if (tr.userNick != null && alreadyBeen.includes(tr.userNick)) continue;
 
             donats.push(tr)
+            if (tr.userNick != null) alreadyBeen.push(tr.userNick)
         }
     }
 
@@ -458,4 +466,46 @@ export async function getUserId(parseId: string): Promise<number> {
     if (id == undefined) throw new Error(`can not get user id: ${parseId}`)
 
     return id;
+}
+
+export function sortRoot(transfers: {
+    total: number;
+    transfers: {
+        id: number;
+        userId: string | number | null;
+        userNick: string | null;
+        amount: number;
+        comment: string | undefined;
+        time: string | number;
+    }[];
+}) {
+    const _transfers: {
+        id: number;
+        userId: string | number | null;
+        userNick: string | null;
+        amount: number;
+        comment: string | undefined;
+        time: string | number;
+    }[] = [];
+
+    const rejected: {
+        id: number;
+        userId: string | number | null;
+        userNick: string | null;
+        amount: number;
+        comment: string | undefined;
+        time: string | number;
+    }[] = []
+
+    for (const transfer of transfers.transfers) {
+        if (!transfer.comment?.startsWith('https://lolz.guru/threads/')) {
+            transfers.total -= transfer.amount
+            rejected.push(transfer)
+            continue;
+        }
+
+        _transfers.push(transfer)
+    }
+
+    transfers.transfers = _transfers
 }
